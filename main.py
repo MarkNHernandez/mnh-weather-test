@@ -14,8 +14,8 @@ response = requests.get(url, params=payload)
 temp = response.json()["consolidated_weather"][0]['the_temp']
 print(Cel2Fahr(temp))
 
-#conn = sqlite3.connect('weather.db')
 
+#conn = sqlite3.connect('weather.db')
 
 #c = conn.cursor()
 
