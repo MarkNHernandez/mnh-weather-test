@@ -9,6 +9,9 @@ __pycache__/
 # Databases
 *.db
 
+# Python Configurations
+.vscode
+
 # Distribution / packaging
 .Python
 build/
