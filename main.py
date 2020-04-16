@@ -2,10 +2,8 @@ import sqlite3
 import requests
 
 #connect to the database and assign the cursor object
-conn = sqlite3.connect('/Volumes/XStorage/MNH/Weather Data/weather.sqlite3')
+conn = sqlite3.connect('/Volumes/XStorage/MNH/Weather_Data/weather.sqlite3')
 c = conn.cursor()
-
-c.execute()
 
 def getDate(dati):
     date = dati[0:10]
@@ -29,7 +27,7 @@ payload = {}
 headers = {}
 
 #send the request to the server and assign the response to a variable
-response = requests.get(url, params=payload)
+response = requests.get(url)
 
 #assign the temperature response to to temp
 temp = response.json()["consolidated_weather"][0]['the_temp']
@@ -38,13 +36,13 @@ temp = response.json()["consolidated_weather"][0]['the_temp']
 dati = response.json()["time"]
 
 print(location)
-print(getDate(dati))
-print(getTime(dati))
-print(round(temp,2))
-print(Cel2Fahr(temp))
-package = (location, getDate(dati), getTime(dati), round(temp,2), Cel2Fahr(temp))
-print("INSERT INTO temperature VALUES " + str(package))
-c.execute("INSERT INTO temperature VALUES " + str(package))
-print(c.fetchone())
+Date = (getDate(dati))
+Time = (getTime(dati))
+TempC = (round(temp,2))
+TempF = (Cel2Fahr(temp))
+package = (location, Date, Time, TempC, TempF)
+sql = "INSERT INTO temperature VALUES ('{}', '{}', '{}', '{}', '{}');".format(*package)
+print(sql)
+c.execute(sql)
 conn.commit()
 conn.close()
