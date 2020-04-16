@@ -35,11 +35,12 @@ temp = response.json()["consolidated_weather"][0]['the_temp']
 #assign the DAte and TIme to DATI
 dati = response.json()["time"]
 
-print(location)
+#print(location)
 Date = (getDate(dati))
 Time = (getTime(dati))
 TempC = (round(temp,2))
 TempF = (Cel2Fahr(temp))
+print(round(temp,2))
 package = (location, Date, Time, TempC, TempF)
 sql = "INSERT INTO temperature VALUES ('{}', '{}', '{}', '{}', '{}');".format(*package)
 print(sql)
