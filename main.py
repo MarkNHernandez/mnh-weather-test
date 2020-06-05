@@ -5,18 +5,19 @@ import requests
 conn = sqlite3.connect('/Volumes/XStorage/MNH/Weather_Data/weather.sqlite3')
 c = conn.cursor()
 
+#small function to assign date
 def getDate(dati):
     date = dati[0:10]
     return date
-
+#function to assign time
 def getTime(dati):
     time = dati[11:19]
     return time
-
+#convert celius to fahrenheit
 def Cel2Fahr(temp):
     fahr = (temp * (9/5) + 32)
     return round(fahr,2)
-
+    
 #assign the location variable
 location = "Chicago"
 
