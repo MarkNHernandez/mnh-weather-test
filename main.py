@@ -22,7 +22,7 @@ def Cel2Fahr(temp):
 location = "Chicago"
 
 url = "http://metaweather.com/api/location/2379574"
-
+ 
 #created by Postman
 payload = {}
 headers = {}
