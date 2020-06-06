@@ -2,7 +2,7 @@ import sqlite3
 import requests
 
 #connect to the database and assign the cursor object
-conn = sqlite3.connect('/Volumes/XStorage/MNH/Weather_Data/weather.sqlite3')
+conn = sqlite3.connect('/Users/markn.hernandez/Documents/Productivity/Code/Weather_Data/weather.sqlite3')
 c = conn.cursor()
 
 #small function to assign date
